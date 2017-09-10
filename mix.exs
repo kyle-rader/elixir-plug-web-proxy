@@ -27,6 +27,8 @@ defmodule PlugWebProxy.Mixfile do
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
       {:cowboy, "~> 1.1.2"},
       {:plug, "~> 1.3.4"},
+      {:httpoison, "~> 0.13.0"},
+      {:mix_test_watch, "~> 0.3", only: :dev, runtime: false}
     ]
   end
 end

@@ -1,8 +1,6 @@
 defmodule PlugWebProxyTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
+
   doctest PlugWebProxy
 
-  test "greets the world" do
-    assert PlugWebProxy.hello() == :world
-  end
 end
