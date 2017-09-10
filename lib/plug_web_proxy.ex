@@ -1,18 +1,14 @@
 defmodule PlugWebProxy do
-  @moduledoc """
-  Documentation for PlugWebProxy.
-  """
+  use Application
+  require Logger
 
-  @doc """
-  Hello world.
+  def start(_type, _args) do
+    children = [
+      Plug.Adapters.Cowboy.child_spec(:http, PlugWebProxy.ProxyPlug, [], port: 3000)
+    ]
 
-  ## Examples
+    Logger.info "Starting application..."
 
-      iex> PlugWebProxy.hello
-      :world
-
-  """
-  def hello do
-    :world
+    Supervisor.start_link(children, strategy: :one_for_one)
   end
 end
