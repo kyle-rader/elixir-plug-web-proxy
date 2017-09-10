@@ -15,7 +15,8 @@ defmodule PlugWebProxy.Mixfile do
   def application do
     [
       extra_applications: [:logger],
-      mod: {PlugWebProxy,[]}
+      mod: {PlugWebProxy,[]},
+      env: [cowboy_port: 3000]
     ]
   end
 
