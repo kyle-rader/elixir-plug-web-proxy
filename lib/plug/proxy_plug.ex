@@ -17,11 +17,11 @@ defmodule PlugWebProxy.ProxyPlug do
       |> send_resp(200, "#{conn.method} Request for #{host}")
   end
 
-  # @service_env_var_name "PROXY_SERVICE_"
+  @service_env_var_name "PROXY_SERVICE_"
 
   def build_proxy_map(env_vars \\ System.get_env()) do
     env_vars
-      |> Enum.filter(fn({key, _}) -> match?("PROXY_SERVICE_"  <> _, key) end)
+      |> Enum.filter(fn({key, _}) -> match?(@service_env_var_name  <> _, key) end)
       |> Enum.reduce(%{}, fn(data, acc) -> convert_env_var(data, acc) end)
   end
 

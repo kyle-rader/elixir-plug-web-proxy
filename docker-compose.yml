@@ -1,0 +1,24 @@
+version: '3'
+services:
+  proxy:
+    build:
+      context: ./
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/app_root/
+    command: mix run --no-halt
+    environment:
+      PROXY_SERVICE_LABS:         "as-labs:4747"
+      PROXY_SERVICE_WILLOW:       "as-willow:1337"
+      PROXY_SERVICE_FERN:         "as-fern:3003"
+      PROXY_SERVICE_JUNIPER:      "as-juniper:3005"
+      PROXY_SERVICE_PINE:         "as-pine:3009"
+      PROXY_SERVICE_SNAPDRAGON:   "as-snapdragon:3010"
+      PROXY_SERVICE_CRABGRASS:    "as-crabgrass:3011"
+      PROXY_SERVICE_ORCHID:       "as-orchid:3012"
+      PROXY_SERVICE_WATERLEAF:    "as-waterleaf:3013"
+      PROXY_SERVICE_EVE:          "as-eve:3014"
+      PROXY_SERVICE_HUCKLEBERRY:  "as-huckleberry:3015"
+      PROXY_SERVICE_STARFLOWER:   "as-starflower:3016"
+      PROXY_SERVICE_SUNFLOWER:    "as-sunflower:3017"
