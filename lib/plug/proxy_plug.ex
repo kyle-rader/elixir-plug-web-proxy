@@ -10,10 +10,11 @@ defmodule PlugWebProxy.ProxyPlug do
     proxy(conn.host, conn)
   end
 
-  def proxy(_host, conn) do
+  def proxy(host, conn) do
+    IO.puts "#{conn.method} Request for #{host}"
     conn
       |> put_resp_content_type("text/plain")
-      |> send_resp(200, "Hello World!\n")
+      |> send_resp(200, "#{conn.method} Request for #{host}")
   end
 
   # @service_env_var_name "PROXY_SERVICE_"
